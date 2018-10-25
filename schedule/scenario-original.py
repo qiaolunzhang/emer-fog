@@ -18,16 +18,18 @@ def generate():
     end_nodes = []
     capacity = []
 
-    # generate available people
+    # generate available people: 0<=num<=3
     num_capable_people = random.randint(0, 3)
+    # list of capable_people: people number: 1, 2, 3
     capable_people = random.sample(range(1, 4), num_capable_people)
     for i in range(num_capable_people):
         start_nodes.append(0)
         capacity.append(1)
     end_nodes.extend(capable_people)
 
-    # generate emergency
+    # generate emergency: 0<=num_emergency<=9
     num_emergency = random.randint(0, 9)
+    # list of emergency to deal with: emergency number: 4, 5,..., 12
     emergency = random.sample(range(4, 13), num_emergency)
 
     # generate capable task
@@ -40,6 +42,7 @@ def generate():
         for j in range(num_capable_task):
             start_nodes.append(i)
             capacity.append(1)
+        # the number of capable is equal to num_capable_task
         end_nodes.extend(capable_emergency)
 
     # link emergency to virtual end node
@@ -56,10 +59,10 @@ def generate():
     print(capacity)
     print(len(capacity))
     print("************************************************")
-    return start_nodes, end_nodes, capacity
+    return emergency, start_nodes, end_nodes, capacity
 
 def main():
-    start_nodes, end_nodes, capacities = generate()
+    emergency, start_nodes, end_nodes, capacities = generate()
     # Instantiate a SimpleMaxFlow solver.
     max_flow = pywrapgraph.SimpleMaxFlow()
     # Add each arc.

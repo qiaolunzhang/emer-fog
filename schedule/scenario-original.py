@@ -17,27 +17,27 @@ def generate():
     start_nodes = []
     end_nodes = []
     capacity = []
+    max_people = 3
+    max_emergency = 9
 
     # generate available people: 0<=num<=3
-    num_capable_people = random.randint(0, 3)
+    num_capable_people = random.randint(0, max_people)
     # list of capable_people: people number: 1, 2, 3
-    capable_people = random.sample(range(1, 4), num_capable_people)
+    capable_people = random.sample(range(1, max_people+1), num_capable_people)
     for i in range(num_capable_people):
         start_nodes.append(0)
         capacity.append(1)
     end_nodes.extend(capable_people)
 
     # generate emergency: 0<=num_emergency<=9
-    num_emergency = random.randint(0, 9)
+    num_emergency = random.randint(0, max_emergency)
     # list of emergency to deal with: emergency number: 4, 5,..., 12
-    emergency = random.sample(range(4, 13), num_emergency)
+    emergency = random.sample(range(max_people+1, max_people+max_emergency+1), num_emergency)
 
     # generate capable task
     for i in capable_people:
-        if num_emergency > 3:
-            num_capable_task = random.randint(0, 3)
-        else:
-            num_capable_task = random.randint(0, num_emergency)
+        #num_capable_task = random.randint(0, 3)
+        num_capable_task = random.randint(0, num_emergency)
         capable_emergency = random.sample(emergency, num_capable_task)
         for j in range(num_capable_task):
             start_nodes.append(i)
@@ -63,6 +63,8 @@ def generate():
 
 def main():
     emergency, start_nodes, end_nodes, capacities = generate()
+    num_emergency = len(emergency)
+    num_solved_local = 0
     # Instantiate a SimpleMaxFlow solver.
     max_flow = pywrapgraph.SimpleMaxFlow()
     # Add each arc.
@@ -72,6 +74,7 @@ def main():
     # Find the maximum flow between node 0 and node 4.
     if max_flow.Solve(0, 20) == max_flow.OPTIMAL:
         print('Max flow:', max_flow.OptimalFlow())
+        num_solved_local = max_flow.OptimalFlow()
         print('')
         print('  Arc    Flow / Capacity')
         for i in range(max_flow.NumArcs()):
@@ -85,5 +88,22 @@ def main():
     else:
         print('There was an issue with the max flow input.')
 
+    print("There are " + str(num_emergency) + "emergencies.")
+    print("There are " + str(num_solved_local) + " solved emergencies.")
+    return num_emergency, num_solved_local
+
 if __name__ == '__main__':
-    main()
+    area = 500
+    num_emergency = 0
+    num_solved = 0
+    num_solved_max = 0
+    for i in range(500):
+        num_emergency_i, num_solved_i = main()
+        num_emergency = num_emergency + num_emergency_i
+        num_solved = num_solved + num_solved_i
+        if num_solved_max < num_solved_i:
+            num_solved_max = num_solved_i
+    print("***********************************************")
+    print("***********************************************")
+    print("There are " + str(num_emergency) + "emergencies.")
+    print("There are " + str(num_solved) + " solved emergencies.")

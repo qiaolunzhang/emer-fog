@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #header {
+            background-color:black;
+            color:white;
+            text-align:center;
+            padding:5px;
+        }
+        #nav {
+            line-height:30px;
+            background-color:#eeeeee;
+            height:300px;
+            width:100px;
+            float:left;
+            padding:5px;
+        }
+        #section {
+            width:350px;
+            float:left;
+            padding:10px;
+        }
+        #footer {
+            background-color:black;
+            color:white;
+            clear:both;
+            text-align:center;
+            padding:5px;
+        }
+    </style>
+    <script type="text/javascript" src="../../dist/vivagraph.js"></script>
+    <script type="text/javascript">
+        function main () {
+            // Step 1. We create a graph object.
+            var graph = Viva.Graph.graph();
+
+            // Step 2. We add nodes and edges to the graph:
+            graph.addLink(1, 2);
+
+            /* Note: graph.addLink() creates new nodes if they are not yet
+               present in the graph. Thus calling this method is equivalent to:
+
+               graph.addNode(1);
+               graph.addNode(2);
+               graph.addLink(1, 2);
+            */
+
+            // Step 3. Render the graph.
+            var renderer = Viva.Graph.View.renderer(graph);
+            renderer.run();
+        }
+    </script>
+
+</head>
+<body>
+
+<div id="header">
+    <h1>City Gallery</h1>
+</div>
+
+<div id="nav">
+    London<br>
+    Paris<br>
+    Tokyo<br>
+</div>
+
+<script type="text/javascript">
+    main('nav');
+</script>
+
+<div id="section">
+    <h1>London</h1>
+    <p>
+        London is the capital city of England. It is the most populous city in the United Kingdom,
+        with a metropolitan area of over 13 million inhabitants.
+    </p>
+    <p>
+        Standing on the River Thames, London has been a major settlement for two millennia,
+        its history going back to its founding by the Romans, who named it Londinium.
+    </p>
+</div>
+
+<script type="text/javascript">
+    main('section');
+</script>
+
+<div id="footer">
+    Copyright W3School.com.cn
+</div>
+
+</body>
+</html>

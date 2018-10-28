@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>02. Custom node appearance. Vivagraph SVG tutorial.</title>
+    <script type="text/javascript" src="../../dist/vivagraph.js"></script>
+    <script type="text/javascript">
+        function main () {
+            // Step 1. Create a graph:
+            var graph = Viva.Graph.graph();
+
+            graph.addNode('1', 'pi.svg');
+            graph.addNode('2', 'pi.svg');
+            graph.addNode('3', 'pi.svg');
+            graph.addNode('4', 'pi.svg');
+            graph.addNode('5', 'pi.svg');
+            graph.addNode('6', 'pi.svg');
+
+
+            graph.addLink('1', '2');
+            graph.addLink('1', '3');
+            graph.addLink('2', '3');
+            graph.addLink('2', '4');
+            graph.addLink('2', '5');
+            graph.addLink('4', '5');
+            graph.addLink('4', '6');
+            graph.addLink('5', '6');
+            // Step 3. Customize node appearance.
+            //  Vivagraph can present graph in multiple ways. svgGraphics() - is
+            //  the way to render graph in SVG format:
+            var graphics = Viva.Graph.View.svgGraphics();
+
+            // This function let us override default node appearance and create
+            // something better than blue dots:
+            graphics.node(function(node) {
+                // node.data holds custom object passed to graph.addNode():
+                var url = "./svg/" + node.data;
+
+                return Viva.Graph.svg('image')
+                     .attr('width', 30)
+                     .attr('height', 30)
+                     .link(url);
+            });
+
+            // Usually when you have custom look for nodes, you might want to
+            // set their position in a new way too. placeNode() method serves
+            // this goal:
+            graphics.placeNode(function(nodeUI, pos) {
+                // nodeUI - is exactly the same object that we returned from
+                //   node() callback above.
+                // pos - is calculated position for this node.
+                nodeUI.attr('x', pos.x - 15).attr('y', pos.y - 15);
+            });
+
+            // Step 4. Render the graph with our customized graphics object:
+            var renderer = Viva.Graph.View.renderer(graph, {
+                    graphics : graphics
+                });
+            renderer.run();
+        }
+    </script>
+
+    <style type="text/css" media="screen">
+        html, body, svg { width: 100%; height: 100%;}
+    </style>
+</head>
+<body onload='main()'>
+<h1>
+    Real Network Topology
+</h1>
+</body>
+</html>

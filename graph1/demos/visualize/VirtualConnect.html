@@ -14,16 +14,16 @@
             // As in previous steps, we create a basic structure of a graph:
             var graph = Viva.Graph.graph();
 
-            graph.addNode('injure', 'injure.svg');
+            graph.addNode('emergency', 'heart.svg');
             graph.addNode('fog1', 'fog.svg');
             graph.addNode('fog2', 'fog.svg');
             graph.addNode('doctor', 'doctor.svg');
-            graph.addLink('injure', 'fog1');
+            graph.addLink('emergency', 'fog1');
             graph.addLink('fog1', 'fog2');
             graph.addLink('fog2', 'doctor');
 
             var graphics = Viva.Graph.View.svgGraphics(),
-                nodeSize = 30,
+                nodeSize = 40,
                 // we use this method to highlight all realted links
                 // when user hovers mouse over a node:
                 highlightRelatedNodes = function(nodeId, isOn) {
@@ -48,7 +48,8 @@
                 var filename = node.id;
 
                 $(ui).hover(function() { // mouse over
-                    window.open("http://127.0.0.1/graph/demos/visualize/info.php?name="+filename, "","height=400,width=300,scrollbars=no");
+                    window.open("http://127.0.0.1/emer-testbed/graph1/demos/visualize/info.php?name="+filename, "","height=400,width=300,scrollbars=no");
+                    window.open("http://127.0.0.1/emer-testbed/graph1/demos/visualize/table.html", "", "height=800,width=350,scrollbars=no");
                     highlightRelatedNodes(node.id, true);
                 }, function() { // mouse out
                     highlightRelatedNodes(node.id, false);

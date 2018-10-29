@@ -1,0 +1,3 @@
+cd /var/log/apache2/
+rm -rf /var/log/apache2/*
+service apache2 reload

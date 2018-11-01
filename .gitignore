@@ -1,2 +1,4 @@
 video/model
 video/resnet50_coco_best_v2.0.1.h5
+video/model/squeezenet_weights_tf_dim_ordering_tf_kernels.h5
+video/model/resnet50_weights_tf_dim_ordering_tf_kernels.h5

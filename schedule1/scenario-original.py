@@ -17,7 +17,7 @@ def generate():
     start_nodes = []
     end_nodes = []
     capacity = []
-    max_people = 3
+    max_people = 8
     max_emergency = 9
 
     # generate available people: 0<=num<=3
@@ -93,11 +93,11 @@ def main():
     return num_emergency, num_solved_local
 
 if __name__ == '__main__':
-    area = 500
+    area = 3500
     num_emergency = 0
     num_solved = 0
     num_solved_max = 0
-    for i in range(500):
+    for i in range(area):
         num_emergency_i, num_solved_i = main()
         num_emergency = num_emergency + num_emergency_i
         num_solved = num_solved + num_solved_i

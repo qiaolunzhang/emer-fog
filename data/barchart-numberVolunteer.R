@@ -17,7 +17,7 @@ p<-ggplot(data=rain, aes(x=numberVolunteer, y=taskAmount, fill=solvedPlace)) +
   theme(legend.position = c(.2,.9)) +
   theme(legend.title = element_blank())
 p<-p+theme(legend.text = element_text(size=22, family = "serif"))
-p<-p+scale_x_continuous("Number of volunteer", breaks = c(1,2,3,4,5,6,7,8))
+p<-p+scale_x_continuous("Maximum number of volunteer", breaks = c(1,2,3,4,5,6,7,8))
 p<-p+theme(axis.text = element_text(size = 22, family = "serif"), axis.title=element_text(size=24, family = "serif"))
 p<-p+scale_y_continuous("Task amount", breaks = c(1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000), limit=c(0, 8000))
 p

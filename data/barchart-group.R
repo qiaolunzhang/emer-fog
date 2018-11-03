@@ -17,7 +17,7 @@ p<-ggplot(data=rain, aes(x=areaSize, y=taskAmount, fill=solvedPlace)) +
   theme(legend.position = c(.2,.9)) +
   theme(legend.title = element_blank())
 p<-p+theme(legend.text = element_text(size=22, family = "serif"))
-p<-p+scale_x_continuous("Area Size", breaks = c(500, 1000, 1500, 2000, 2500, 3000, 3500))
+p<-p+scale_x_continuous("Area size", breaks = c(500, 1000, 1500, 2000, 2500, 3000, 3500))
 p<-p+theme(axis.text = element_text(size = 22, family = "serif"), axis.title=element_text(size=24, family = "serif"))
-p<-p+scale_y_continuous("Task Amounts")
+p<-p+scale_y_continuous("Task amount")
 p

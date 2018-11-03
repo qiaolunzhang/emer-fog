@@ -1,22 +1,22 @@
 scheme,areaSize,longestExecutionTime
-without emer-fog,50,81.0763701
-without emer-fog,100,162.1527402
-without emer-fog,200,324.3054804
-without emer-fog,250,405.3818505
-without emer-fog,300,486.4582206
-without emer-fog,350,567.5345907
-without emer-fog,400,648.6109608
-emer-fog without scheduling,50,40.6617
-emer-fog without scheduling,100,77.1234
-emer-fog without scheduling,200,150.0468
-emer-fog without scheduling,250,186.5085
-emer-fog without scheduling,300,222.9702
-emer-fog without scheduling,350,259.4319
-emer-fog without scheduling,400,295.8936
-emer-fog with scheduling,50,32.21982857
-emer-fog with scheduling,100,60.23965714
-emer-fog with scheduling,200,116.2793143
-emer-fog with scheduling,250,144.2991429
-emer-fog with scheduling,300,172.3189714
-emer-fog with scheduling,350,200.3388
-emer-fog with scheduling,400,228.3586286
+without Emer-Fog,50,81.0763701
+without Emer-Fog,100,162.1527402
+without Emer-Fog,200,324.3054804
+without Emer-Fog,250,405.3818505
+without Emer-Fog,300,486.4582206
+without Emer-Fog,350,567.5345907
+without Emer-Fog,400,648.6109608
+Emer-Fog without scheduling,50,40.6617
+Emer-Fog without scheduling,100,77.1234
+Emer-Fog without scheduling,200,150.0468
+Emer-Fog without scheduling,250,186.5085
+Emer-Fog without scheduling,300,222.9702
+Emer-Fog without scheduling,350,259.4319
+Emer-Fog without scheduling,400,295.8936
+Emer-Fog with scheduling,50,32.21982857
+Emer-Fog with scheduling,100,60.23965714
+Emer-Fog with scheduling,200,116.2793143
+Emer-Fog with scheduling,250,144.2991429
+Emer-Fog with scheduling,300,172.3189714
+Emer-Fog with scheduling,350,200.3388
+Emer-Fog with scheduling,400,228.3586286

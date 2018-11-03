@@ -9,15 +9,15 @@ ggplot(data=dat1, aes(x=time, y=total_bill, fill=sex)) +
   geom_bar(stat="identity", position=position_dodge())
 
 
-rain<-read.table("D:\\mycode\\emer-testbed\\data\\graph1.csv", header = TRUE,
+rain<-read.table("D:\\mycode\\emer-testbed\\data\\graph3-number-of-volunteer.csv", header = TRUE,
                  sep = ",")
 head(rain)
-p<-ggplot(data=rain, aes(x=areaSize, y=taskAmount, fill=solvedPlace)) +
+p<-ggplot(data=rain, aes(x=numberVolunteer, y=taskAmount, fill=solvedPlace)) +
   geom_bar(stat="identity", position = position_dodge()) +
   theme(legend.position = c(.2,.9)) +
   theme(legend.title = element_blank())
 p<-p+theme(legend.text = element_text(size=22, family = "serif"))
-p<-p+scale_x_continuous("Area size", breaks = c(500, 1000, 1500, 2000, 2500, 3000, 3500))
+p<-p+scale_x_continuous("Number of volunteer", breaks = c(1,2,3,4,5,6,7,8))
 p<-p+theme(axis.text = element_text(size = 22, family = "serif"), axis.title=element_text(size=24, family = "serif"))
-p<-p+scale_y_continuous("Task amount", breaks = c(2500, 5000, 7500, 10000, 12500, 15000, 17500))
+p<-p+scale_y_continuous("Task amount", breaks = c(1000, 2000, 3000, 4000, 5000, 6000, 7000, 8000), limit=c(0, 8000))
 p

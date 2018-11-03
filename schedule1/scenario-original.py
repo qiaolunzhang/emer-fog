@@ -17,8 +17,8 @@ def generate():
     start_nodes = []
     end_nodes = []
     capacity = []
-    max_people = 8
-    max_emergency = 9
+    max_people = 2
+    max_emergency = 3
 
     # generate available people: 0<=num<=3
     num_capable_people = random.randint(0, max_people)
